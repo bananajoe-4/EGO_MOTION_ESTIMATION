@@ -123,14 +123,18 @@ if __name__ == '__main__':
     else:
         outputs1, _ = ego_motion_single_radar_kf(scene, 'radar1', verbose=False)
         print('radar1 kf run complete !!..')
-        outputs2, _ = ego_motion_single_radar_kf(scene, 'radar2', verbose=False)
-        print('radar2 kf run complete !!..')
-        outputs3, _ = ego_motion_single_radar_kf(scene, 'radar3', verbose=False)
-        print('radar3 kf run complete !!..')
-        outputs4, _ = ego_motion_single_radar_kf(scene, 'radar4', verbose=False)
-        print('radar4 kf run complete !!..')
 
-        compare_ego_motion_radars_odometry(outputs1, outputs2, outputs3, outputs4, scene)
-        compare_ego_motion_radars(outputs1, outputs2, outputs3, outputs4, scene)
+        #outputs2, _ = ego_motion_single_radar_kf(scene, 'radar2', verbose=False)
+        #print('radar2 kf run complete !!..')
+        #outputs3, _ = ego_motion_single_radar_kf(scene, 'radar3', verbose=False)
+        #print('radar3 kf run complete !!..')
+        #outputs4, _ = ego_motion_single_radar_kf(scene, 'radar4', verbose=False)
+        #print('radar4 kf run complete !!..')
+
+        #compare_ego_motion_radars_odometry(outputs1, outputs2, outputs3, outputs4, scene)
+        #compare_ego_motion_radars(outputs1, outputs2, outputs3, outputs4, scene)
+
+        #compare_ego_motion_radars_odometry(outputs1, scene)
+        compare_ego_motion_radars(outputs1, scene)
 
         plt.show()

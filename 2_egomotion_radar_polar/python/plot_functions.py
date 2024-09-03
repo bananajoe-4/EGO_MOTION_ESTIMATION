@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 
 
 def plot_ego_motion(
-    data_rad, timestamp_rad, 
+    data_rad, timestamp_rad,
     data_odom, timestamp_odom,
     idx, color, radar_id, des, y_label, ax):
 
@@ -23,66 +23,66 @@ def plot_ego_motion(
 
 
 def plot_ego_motion_rad(
-    data_rad1, timestamp_rad1, 
-    data_rad2, timestamp_rad2,
-    data_rad3, timestamp_rad3,
-    data_rad4, timestamp_rad4,
+    data_rad1, timestamp_rad1,
+    #data_rad2, timestamp_rad2,
+    #data_rad3, timestamp_rad3,
+    #data_rad4, timestamp_rad4,
     des, y_label, ax):
 
     label = des + ' using '
     ax.plot(timestamp_rad1, data_rad1, '-', color='red', label=label + 'radar 1')
-    ax.plot(timestamp_rad2, data_rad2, '-', color='green', label=label + 'radar 2')
-    ax.plot(timestamp_rad3, data_rad3, '-', color='blue', label=label + 'radar 3')
-    ax.plot(timestamp_rad4, data_rad4, '-', color='magenta', label=label + 'radar 4')
+    #ax.plot(timestamp_rad2, data_rad2, '-', color='green', label=label + 'radar 2')
+    #ax.plot(timestamp_rad3, data_rad3, '-', color='blue', label=label + 'radar 3')
+    #ax.plot(timestamp_rad4, data_rad4, '-', color='magenta', label=label + 'radar 4')
     ax.legend()
     ax.set_xlabel('time (sec)')
     ax.set_ylabel(y_label)
     return ax
 
 
-def compare_ego_motion_radars_odometry(est1, est2, est3, est4, scene):
+def compare_ego_motion_radars_odometry(est1, scene):
 
     vx_ego_rad1, yawrate_ego_rad1, timestamp_rad1, vx_ego_odom1, yawrate_ego_odom1, timestamp_odom1 = est1
-    vx_ego_rad2, yawrate_ego_rad2, timestamp_rad2, vx_ego_odom2, yawrate_ego_odom2, timestamp_odom2 = est2
-    vx_ego_rad3, yawrate_ego_rad3, timestamp_rad3, vx_ego_odom3, yawrate_ego_odom3, timestamp_odom3 = est3
-    vx_ego_rad4, yawrate_ego_rad4, timestamp_rad4, vx_ego_odom4, yawrate_ego_odom4, timestamp_odom4 = est4
+    #vx_ego_rad2, yawrate_ego_rad2, timestamp_rad2, vx_ego_odom2, yawrate_ego_odom2, timestamp_odom2 = est2
+    #vx_ego_rad3, yawrate_ego_rad3, timestamp_rad3, vx_ego_odom3, yawrate_ego_odom3, timestamp_odom3 = est3
+    #vx_ego_rad4, yawrate_ego_rad4, timestamp_rad4, vx_ego_odom4, yawrate_ego_odom4, timestamp_odom4 = est4
 
     fig, ax = plt.subplots(2,2)
     ax = plot_ego_motion(vx_ego_rad1, timestamp_rad1, vx_ego_odom1, timestamp_odom1, (0,0), 'red', 'radar 1', 'ego vx', 'speed (m/s)', ax)
-    ax = plot_ego_motion(vx_ego_rad2, timestamp_rad2, vx_ego_odom2, timestamp_odom2, (1,0), 'green', 'radar 2', 'ego vx', 'speed (m/s)', ax)
-    ax = plot_ego_motion(vx_ego_rad3, timestamp_rad3, vx_ego_odom3, timestamp_odom3, (0,1), 'blue', 'radar 3', 'ego vx', 'speed (m/s)', ax)
-    ax = plot_ego_motion(vx_ego_rad4, timestamp_rad4, vx_ego_odom4, timestamp_odom4, (1,1), 'violet', 'radar 4', 'ego vx', 'speed (m/s)', ax)
+    #ax = plot_ego_motion(vx_ego_rad2, timestamp_rad2, vx_ego_odom2, timestamp_odom2, (1,0), 'green', 'radar 2', 'ego vx', 'speed (m/s)', ax)
+    #ax = plot_ego_motion(vx_ego_rad3, timestamp_rad3, vx_ego_odom3, timestamp_odom3, (0,1), 'blue', 'radar 3', 'ego vx', 'speed (m/s)', ax)
+    #ax = plot_ego_motion(vx_ego_rad4, timestamp_rad4, vx_ego_odom4, timestamp_odom4, (1,1), 'violet', 'radar 4', 'ego vx', 'speed (m/s)', ax)
     fig.suptitle('comparison of vx estimations for scene ' + scene, fontsize=16)
 
     fig, ax = plt.subplots(2,2)
     ax = plot_ego_motion(yawrate_ego_rad1, timestamp_rad1, yawrate_ego_odom1, timestamp_odom1, (0,0), 'red', 'radar 1', 'ego yawrate', 'yawrate (deg/s)', ax)
-    ax = plot_ego_motion(yawrate_ego_rad2, timestamp_rad2, yawrate_ego_odom2, timestamp_odom2, (1,0), 'green', 'radar 2', 'ego yawrate', 'yawrate (deg/s)', ax)
-    ax = plot_ego_motion(yawrate_ego_rad3, timestamp_rad3, yawrate_ego_odom3, timestamp_odom3, (0,1), 'blue', 'radar 3', 'ego yawrate', 'yawrate (deg/s)', ax)
-    ax = plot_ego_motion(yawrate_ego_rad4, timestamp_rad4, yawrate_ego_odom4, timestamp_odom4, (1,1), 'violet', 'radar 4', 'ego yawrate', 'yawrate (deg/s)', ax)
+    #ax = plot_ego_motion(yawrate_ego_rad2, timestamp_rad2, yawrate_ego_odom2, timestamp_odom2, (1,0), 'green', 'radar 2', 'ego yawrate', 'yawrate (deg/s)', ax)
+    #ax = plot_ego_motion(yawrate_ego_rad3, timestamp_rad3, yawrate_ego_odom3, timestamp_odom3, (0,1), 'blue', 'radar 3', 'ego yawrate', 'yawrate (deg/s)', ax)
+    #ax = plot_ego_motion(yawrate_ego_rad4, timestamp_rad4, yawrate_ego_odom4, timestamp_odom4, (1,1), 'violet', 'radar 4', 'ego yawrate', 'yawrate (deg/s)', ax)
     fig.suptitle('comparison of yawrate estimations for scene ' + scene, fontsize=16)
 
 
 
-def compare_ego_motion_radars(est1, est2, est3, est4, scene):
+def compare_ego_motion_radars(est1, scene):
 
     vx_ego_rad1, yawrate_ego_rad1, timestamp_rad1, _, _, _ = est1
-    vx_ego_rad2, yawrate_ego_rad2, timestamp_rad2, _, _, _ = est2
-    vx_ego_rad3, yawrate_ego_rad3, timestamp_rad3, _, _, _ = est3
-    vx_ego_rad4, yawrate_ego_rad4, timestamp_rad4, _, _, _ = est4
+    #vx_ego_rad2, yawrate_ego_rad2, timestamp_rad2, _, _, _ = est2
+    #vx_ego_rad3, yawrate_ego_rad3, timestamp_rad3, _, _, _ = est3
+    #vx_ego_rad4, yawrate_ego_rad4, timestamp_rad4, _, _, _ = est4
 
     fig, ax = plt.subplots(1,1)
     ax = plot_ego_motion_rad(vx_ego_rad1, timestamp_rad1,
-                             vx_ego_rad2, timestamp_rad2,
-                             vx_ego_rad3, timestamp_rad3,
-                             vx_ego_rad4, timestamp_rad4, 
+                             #vx_ego_rad2, timestamp_rad2,
+                             #vx_ego_rad3, timestamp_rad3,
+                             #vx_ego_rad4, timestamp_rad4,
                              'ego vx', 'speed (m/s)', ax)
     fig.suptitle('comparison of ego vx estimations by ols for scene ' + scene, fontsize=16)
 
     fig, ax = plt.subplots(1,1)
     ax = plot_ego_motion_rad(yawrate_ego_rad1, timestamp_rad1,
-                             yawrate_ego_rad2, timestamp_rad2,
-                             yawrate_ego_rad3, timestamp_rad3,
-                             yawrate_ego_rad4, timestamp_rad4, 
+                             #yawrate_ego_rad2, timestamp_rad2,
+                             #yawrate_ego_rad3, timestamp_rad3,
+                             #yawrate_ego_rad4, timestamp_rad4,
                              'ego yawrate', 'yawrate (deg/s)', ax)
     fig.suptitle('comparison of ego yawrate estimations by ols for scene ' + scene, fontsize=16)
 
